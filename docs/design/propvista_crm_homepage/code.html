@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PropVista CRM - AI-Powered Real Estate Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001848",
+                    "inverse-primary": "#b2c5ff",
+                    "on-primary-container": "#c4d2ff",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d9d9e4",
+                    "surface": "#faf8ff",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-background": "#191b23",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#ffc6b2",
+                    "outline": "#737685",
+                    "surface-container": "#ededf8",
+                    "on-secondary-container": "#661a86",
+                    "tertiary": "#7b2600",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2e3038",
+                    "surface-container-low": "#f3f3fd",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "background": "#faf8ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#e7e7f2",
+                    "secondary-fixed": "#f8d8ff",
+                    "secondary-fixed-dim": "#ecb2ff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "primary": "#003d9b",
+                    "surface-tint": "#0c56d0",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary-container": "#0052cc",
+                    "secondary-container": "#de8ffd",
+                    "tertiary-container": "#a33500",
+                    "on-surface": "#191b23",
+                    "primary-fixed": "#dae2ff",
+                    "secondary": "#873da6",
+                    "surface-variant": "#e1e2ec",
+                    "inverse-on-surface": "#f0f0fb",
+                    "surface-bright": "#faf8ff",
+                    "surface-container-highest": "#e1e2ec",
+                    "on-secondary-fixed-variant": "#6c228c",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#320047",
+                    "outline-variant": "#c3c6d6",
+                    "ai-accent": "#8E44AD"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "10px",
+                    "xl": "12px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "container-max": "1440px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-shimmer {
+            background: linear-gradient(90deg, rgba(142,68,173,0.1), rgba(142,68,173,0.2), rgba(142,68,173,0.1));
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .glass-nav {
+            backdrop-filter: blur(8px);
+            background: rgba(250, 248, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant shadow-sm glass-nav">
+<div class="flex justify-between items-center h-20 px-xl max-w-container-max mx-auto">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary">EstateIntelligence</span>
+<div class="hidden md:flex gap-md">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md cursor-pointer" href="#">Buy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md cursor-pointer" href="#">Rent</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md cursor-pointer" href="#">Agents</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md cursor-pointer" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface font-label-md hover:text-primary transition-colors">Sign In</button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md hover:bg-primary-container transition-all active:opacity-80">Join AI Pro</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[600px] flex flex-col items-center justify-center text-center px-margin-mobile py-xl overflow-hidden">
+
+<div class="relative z-10 max-w-4xl w-full">
+<div class="inline-flex items-center gap-xs px-sm py-1 rounded-full bg-ai-accent/10 text-ai-accent mb-lg animate-pulse border border-ai-accent/20">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="font-label-sm uppercase tracking-wider">AI-Powered Search Engine</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-md">Find your next home with <span class="text-primary">Intelligence</span>.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-2xl mx-auto">Skip the filters. Just tell our AI exactly what you're looking for in plain English.</p>
+<div class="w-full max-w-3xl mx-auto bg-surface-container-lowest rounded-xl shadow-lg p-base border-2 border-ai-accent flex items-center group transition-all focus-within:ring-4 focus-within:ring-ai-accent/10">
+<div class="pl-md text-ai-accent">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<input class="flex-grow bg-transparent border-none focus:ring-0 px-md py-lg text-body-lg placeholder:text-on-surface-variant/50" placeholder="Try '3BHK under 80 lakhs near tech park'" type="text"/>
+<div class="flex items-center gap-sm pr-sm">
+<button class="p-sm text-on-surface-variant hover:text-ai-accent transition-colors rounded-full hover:bg-ai-accent/5">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<button class="bg-ai-accent text-white px-lg py-md rounded-lg font-label-md flex items-center gap-xs hover:bg-ai-accent/90 transition-all shadow-md active:scale-95">
+<span>Get matched</span>
+</button>
+</div>
+</div>
+<div class="mt-lg flex flex-wrap justify-center gap-sm">
+<span class="font-label-sm text-on-surface-variant">Popular searches:</span>
+<button class="font-label-sm text-primary hover:underline">Pet-friendly in Indiranagar</button>
+<button class="font-label-sm text-primary hover:underline">Villas with garden</button>
+<button class="font-label-sm text-primary hover:underline">Modern lofts downtown</button>
+</div>
+</div>
+</section>
+<!-- Featured Properties -->
+<section class="py-xl max-w-container-max mx-auto px-xl">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Curated matches for you</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Properties that align with your lifestyle profile.</p>
+</div>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline">
+                    View all <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-lg pb-lg scrollbar-hide no-scrollbar -mx-xl px-xl">
+<!-- Card 1 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow border border-outline-variant overflow-hidden group">
+<div class="h-64 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A modern luxury apartment interior with floor-to-ceiling windows overlooking a vibrant city skyline at sunset. The interior is minimal and elegant, featuring a primary blue and white color palette with soft purple accent lighting from a smart home device. High-end professional real estate photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNqELk8MLCTE3yAP7rrphgOjNPjUDFlPmqhvynyVNd7tiY3dAPoP0yepZ8kDIoaNiXwsekuloXMW5Wm4qyDVfUKFP50jxHoiOj3WGn2f2LFas3Ect-Lv0txziKKjgN-K7-RwHc-Cpo8byUASHUuEX3FUTfM7NpnEk6mePLiV0UUN2BkhOuOWUd2WFFWpaGVtOPLkWUAxGGU50q2PAgLrYLGHrTLrA9T1L_zz_6Q8d5hSke7KnlV2hL7Q')"></div>
+<button class="absolute top-md right-md p-sm rounded-full bg-white/80 backdrop-blur-sm text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-md left-md">
+<div class="bg-ai-accent/90 text-white px-sm py-1 rounded-full text-label-sm flex items-center gap-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">bolt</span> 98% AI Match
+                            </div>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-[20px] text-on-surface">Skyline Residences</h3>
+<span class="font-bold text-primary">₹1.2 Cr</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span> MG Road, Bangalore
+                        </p>
+<div class="flex items-center gap-md border-t border-outline-variant pt-md">
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 3 BHK
+                            </div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 2 Bath
+                            </div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 1,850 sq.ft
+                            </div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow border border-outline-variant overflow-hidden group">
+<div class="h-64 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A serene suburban villa with a lush green garden and a small swimming pool. The architecture is contemporary with clean lines, large glass doors, and a warm white facade. The lighting is bright morning sunlight, creating a crisp, premium corporate aesthetic. Neutral tones with subtle blue and purple accents in the garden flowers." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQH05Pd5UtkqR88qRyZgD8LUc8VeoUFnpuIdtKTRlE2wRH8mJtPgbJtBXUFGkaIytN8NmTMhW9ggefNx80GM09ee5lR23b0kZCr6FPbr-kCTmrWFg2LZfKWp2b85x_I7HXbXFV2RHJ61dgtRu4y-Ghjl-WGBCVHssO2X2-jq-8a_SMdeQI_IukQKmhMbmIHU_4qFJmYsNS-kpDzWzVfrXGr_9m_aQrAVeFv_y9aqXXXenxYIjYSzvpuA')"></div>
+<button class="absolute top-md right-md p-sm rounded-full bg-white/80 backdrop-blur-sm text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-md left-md">
+<div class="bg-ai-accent/90 text-white px-sm py-1 rounded-full text-label-sm flex items-center gap-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">bolt</span> 94% AI Match
+                            </div>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-[20px] text-on-surface">The Green Villa</h3>
+<span class="font-bold text-primary">₹85 L</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Whitefield, Bangalore
+                        </p>
+<div class="flex items-center gap-md border-t border-outline-variant pt-md">
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 2 BHK
+                            </div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 2 Bath
+                            </div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 1,400 sq.ft
+                            </div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow border border-outline-variant overflow-hidden group">
+<div class="h-64 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="An industrial-style loft apartment with exposed brick walls, high ceilings, and metallic stairs. Large warehouse windows let in diffused daylight. The furniture is minimalist and modern, following a clean corporate palette. A sense of urban intelligence and innovation is conveyed through the sharp angles and professional lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDadPEZUHU1ASR3IAeKE-vq5Nh9lNfkfib-dhqClulIVWHcm336XhTmiGSE2wr7msE5dxV8AVZ_s8Elw7RwxpS9nw_LE659iUZ8ZlAloNqiopp0DrfvwvNIWpNUuahOeTPJ2goygav-1XXNhJHDDdI7Xp1BhaHp845bRpK1DocuTSnpkzHl8TRNoomFNiK4nHQJDo6CH3BEcjl19n0OUjjIw6yhms23OCTyRMGylvlpPi8ViVAE7K-FSQ')"></div>
+<button class="absolute top-md right-md p-sm rounded-full bg-white/80 backdrop-blur-sm text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-md left-md">
+<div class="bg-ai-accent/90 text-white px-sm py-1 rounded-full text-label-sm flex items-center gap-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">bolt</span> 89% AI Match
+                            </div>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-[20px] text-on-surface">Industrial Loft</h3>
+<span class="font-bold text-primary">₹1.5 Cr</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Koramangala, Bangalore
+                        </p>
+<div class="flex items-center gap-md border-t border-outline-variant pt-md">
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 3 BHK
+                            </div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 3 Bath
+                            </div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 2,100 sq.ft
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works Section -->
+<section class="py-xl bg-surface-container">
+<div class="max-w-container-max mx-auto px-xl text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xl">Your journey to a better home</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-[32px]">chat_bubble_outline</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-sm">1. Search or Chat</h3>
+<p class="font-body-md text-on-surface-variant max-w-xs">Use natural language to describe exactly what you need. No more rigid filters.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-ai-accent/10 text-ai-accent flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-[32px]">hub</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-sm">2. Get Matched</h3>
+<p class="font-body-md text-on-surface-variant max-w-xs">Our AI analyzes thousands of properties to find your perfect 1:1 match.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-[32px]">handshake</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-sm">3. Connect</h3>
+<p class="font-body-md text-on-surface-variant max-w-xs">Tour the best options with our top-rated agents and close the deal.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-xl max-w-container-max mx-auto px-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-xl">Trusted by thousands of owners</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex gap-xs text-ai-accent mb-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface mb-lg">"The AI search is a game changer. I just typed what I wanted and it found the exact apartment that wasn't even on other sites."</p>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="object-cover" data-alt="A professional headshot of a smiling young woman with dark hair, wearing a clean white blazer. She looks confident and successful. High-key studio lighting with a neutral gray background, consistent with a modern corporate brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvPLphI9Z3Hab1N0-VdR1S1AVRvIc-fwZ65tTXnqtL5oizRiDGjJ2IeAZUqfhzWn6rPLgUA8nFmIMICgXIjtC-4qZ3Bol_3Kn0GK3C-NIX940rPMV7kQAM9eBpd_02eEILaUMIj14XmjVLXNEPJUyq93M8-HllBhyVpMAUhAdPWvQlpZTVw3jSUEQ0NnX-a-MiPEVCtNCpwrm1tpetTfGnurNU-kYfw18R5RRNs-IYffKu6S4b8GZzQw"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Aditi Sharma</p>
+<p class="font-label-sm text-on-surface-variant">Tech Lead at FinCorp</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex gap-xs text-ai-accent mb-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface mb-lg">"Finally, a CRM that understands real estate. The agent dashboard and AI insights saved us hours of manual data entry."</p>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="object-cover" data-alt="A professional headshot of a middle-aged man with short salt-and-pepper hair, wearing a navy blue suit and a friendly smile. He exudes trustworthiness and professional experience. Minimalist modern photography with high-contrast lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAflldv_EN-QSWwHejXfRoMZBSyb0xNFHFEWzf1QmsSQSfbZtKFUsltXtzGN7CyKweBcN7YfaZTADqwnkND5vRc5a-RN29FGUMeH31nOTBCBrJytXFgS1ITsE8HYoNamBtc4XQvyAGUDPpoptaHsVLQEqgsqjYB6GyqzkEq6R1dMAT6oYnbinHxsZx-gH1IdrG2sukwutjSwcHI0Di0afiufS0l_iqB8tbumlckElRNti4UezVm9HBHgg"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Rahul Mehta</p>
+<p class="font-label-sm text-on-surface-variant">Founder, Urban Spaces</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex gap-xs text-ai-accent mb-md">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<p class="font-body-md text-on-surface mb-lg">"Smooth, fast, and intelligent. The matching algorithm is scarily accurate. Highly recommended for busy professionals."</p>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="object-cover" data-alt="A headshot of a stylish young creative professional with glasses and a thoughtful expression. Minimalist environment, wearing a dark turtleneck. Lighting is sophisticated and soft, creating a premium modern feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmJVuqD_i-RJldOZhYezVc5n7dXGlvRUid4Cy05KXSMrKpBALAsWlcVK3OmNc-FESAQkwziDggxYrTWP6zEcqRcwNZreNBG0NOgs8Key4154hC6fg8RggbirUnUyJJOfEHgnBCFICz9cmhnvzU_89Qz2SxHKDTyi1zbajjUGcgfkNc5cBVx0vcc3X9eJ_9lOs_HjzEUWFwMWDMX0oTjDdylWKV4kshyhWrT5HecyP9cVVVkNqlFb1LhA"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Kevin Zhang</p>
+<p class="font-label-sm text-on-surface-variant">Design Architect</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Chatbot Bubble -->
+<div class="fixed bottom-lg right-lg z-[100] flex flex-col items-end">
+<div class="hidden mb-md w-80 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant overflow-hidden" id="chat-popup">
+<div class="bg-ai-accent p-md text-white flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md">Estate AI Assistant</span>
+</div>
+<button class="material-symbols-outlined text-[20px]" onclick="toggleChat()">close</button>
+</div>
+<div class="h-64 p-md overflow-y-auto space-y-md bg-surface-container-low" id="chat-messages">
+<div class="bg-white p-sm rounded-lg rounded-tl-none shadow-sm text-body-sm text-on-surface max-w-[85%]">
+                    Hello! I'm your AI real estate assistant. Ask me anything about local property trends or current listings.
+                </div>
+</div>
+<div class="p-sm bg-white border-t border-outline-variant flex gap-sm">
+<input class="flex-grow text-body-sm border-none focus:ring-0" placeholder="Type a message..." type="text"/>
+<button class="text-ai-accent material-symbols-outlined">send</button>
+</div>
+</div>
+<button class="w-14 h-14 rounded-full bg-ai-accent text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group relative" onclick="toggleChat()">
+<span class="material-symbols-outlined text-[28px]">chat</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-error rounded-full border-2 border-white"></span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-highest">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-xl py-xl max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">EstateIntelligence</span>
+<p class="mt-md font-body-sm text-on-surface-variant">The future of real estate is intelligent. We leverage advanced AI to connect the right people with the right properties.</p>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Company</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Careers</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Press</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Resources</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Blog</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Market Trends</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Pro Guides</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Accessibility</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Legal</h4>
+<ul class="space-y-xs">
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors underline" href="#">Privacy Policy</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors underline" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-on-surface transition-colors underline" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-lg px-xl max-w-container-max mx-auto text-center">
+<p class="font-body-sm text-on-surface-variant opacity-70">© 2024 EstateIntelligence AI. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        function toggleChat() {
+            const popup = document.getElementById('chat-popup');
+            popup.classList.toggle('hidden');
+        }
+
+        // Simple scroll animation for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.shadow-sm').forEach(el => {
+            el.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

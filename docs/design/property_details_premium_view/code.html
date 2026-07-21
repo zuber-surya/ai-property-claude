@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property Details | PropVista CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary": "#7b2600",
+                        "secondary-container": "#de8ffd",
+                        "on-surface": "#191b23",
+                        "inverse-surface": "#2e3038",
+                        "secondary": "#873da6",
+                        "on-tertiary-container": "#ffc6b2",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-dim": "#d9d9e4",
+                        "tertiary-fixed": "#ffdbcf",
+                        "primary": "#003d9b",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0c56d0",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#a33500",
+                        "surface-bright": "#faf8ff",
+                        "outline-variant": "#c3c6d6",
+                        "on-background": "#191b23",
+                        "on-secondary-fixed-variant": "#6c228c",
+                        "on-primary-fixed": "#001848",
+                        "surface-container": "#ededf8",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-container-high": "#e7e7f2",
+                        "secondary-fixed": "#f8d8ff",
+                        "on-secondary-container": "#661a86",
+                        "on-tertiary": "#ffffff",
+                        "background": "#faf8ff",
+                        "outline": "#737685",
+                        "on-primary-container": "#c4d2ff",
+                        "on-secondary-fixed": "#320047",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "primary-container": "#0052cc",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e2ec",
+                        "secondary-fixed-dim": "#ecb2ff",
+                        "surface-variant": "#e1e2ec",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#434654",
+                        "surface-container-low": "#f3f3fd",
+                        "surface": "#faf8ff",
+                        "primary-fixed": "#dae2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "10px",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "xl": "40px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-level-1 { box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); }
+        .shadow-level-2 { box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1); }
+        input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #0052CC;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm w-full">
+<div class="flex justify-between items-center w-full px-lg py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary">PropVista CRM</span>
+<nav class="hidden md:flex gap-lg">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#">Properties</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Clients</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tasks</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-md py-xs gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search leads..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined p-xs hover:bg-surface-container-high rounded-full cursor-pointer">notifications</span>
+<span class="material-symbols-outlined p-xs hover:bg-surface-container-high rounded-full cursor-pointer text-secondary">auto_awesome</span>
+<button class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-md hover:opacity-90 transition-opacity">Add Lead</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a real estate agent with a friendly expression, set against a blurred office background. The lighting is soft and professional, emphasizing a high-trust, corporate PropTech aesthetic with a clean and modern feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZLa7erk3Oj1ebbh6krbVu4xDevTlrNODUR-gt7wGFIQ9nHZvG0amkjFLeSM9aTxTQsf5teM1Eu21F9iJMatRshSUwTQURQIzsB5iGD2jrYGA5ONuPEt5MXa4SHNpjycnd2Gy-qZaJeWh7MtTZfgDhNrktWE3E0ph88AZ6lFmiPXmlNXJJKCMUkPMt_PEXLSKQ7Vq4cwiPaOunP7uSJcpAkR_TtKh1N6f_vWzvA6F4TAHvWiywtOYTWA"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg py-xl">
+<!-- Image Gallery Carousel -->
+<section class="mb-xl">
+<div class="relative group aspect-[21/9] overflow-hidden rounded-xl bg-surface-container-high shadow-level-1">
+<img class="w-full h-full object-cover" data-alt="A luxurious, high-end residential living room with floor-to-ceiling windows overlooking a modern city skyline. The interior features minimalist furniture, a neutral color palette with primary blue accents, and warm ambient lighting. The atmosphere is sophisticated, clean, and representative of a premium property listing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjXV3k_EfcHWyMu-XKaniM8LRH4UfjZQCEVf01MllfT8OY_u39bY2AswAH0bjYDQZl98BauC0AhD1h6xKuaFCrg3k581laUSF2rmrx5--6AIrzzZzIgwuoCQ0CeegKvYWDego54KccmaD37bFofwx9MFwgA54nVIbOvHwFhKeDrfWda4UOmwDCE9HppJHNfcC2xCzjerlJLOALVwaXXg8evDd014amfaalTjavYroO2LneEPKmKAxBvw"/>
+<div class="absolute inset-y-0 left-4 flex items-center">
+<button class="bg-white/90 p-md rounded-full shadow-md text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+<div class="absolute inset-y-0 right-4 flex items-center">
+<button class="bg-white/90 p-md rounded-full shadow-md text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="absolute bottom-4 right-4 bg-black/60 text-white px-md py-xs rounded-full font-label-sm backdrop-blur-md">
+                    1 / 12 Photos
+                </div>
+</div>
+<!-- Thumbnail Strip -->
+<div class="flex gap-md mt-md overflow-x-auto pb-xs">
+<div class="w-32 h-20 flex-shrink-0 rounded-lg overflow-hidden ring-2 ring-primary">
+<img class="w-full h-full object-cover cursor-pointer" data-alt="A modern kitchen with marble countertops, high-end stainless steel appliances, and sleek cabinetry. The lighting is bright and natural, highlighting the clean lines and premium materials of a luxury real estate property." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfUfYHReHVlPWOEelyGVfyz3BQ14-F17wAf_nIOaaMHJ30p7ZyyZU-TDh6NTfjrdge_pGYUpQmkAE9VbdCqoUgyjGd4d-kF7gljeTg8fjc3fbqdoEZ_LBVDs_thgqme6sHcD79DTICAtHiM34h_mj1YESsHgr1yO1QyGTF0IfLSFToZKzwzE_bwm0ObiTJBn3UxO6Y61YsPhySHtnoTzAxLkTxpj-GIn8mq7fTkAVmc2UYBur2mMFqCA"/>
+</div>
+<div class="w-32 h-20 flex-shrink-0 rounded-lg overflow-hidden opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover cursor-pointer" data-alt="A spacious master bedroom with a king-sized bed, soft designer linens, and a large window showing lush greenery outside. The style is tranquil and modern, using a palette of soft greys and deep blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1z4denk7yjeKelMgooI-034vkwFUm5scjmYWDNyjg-akjjEqnf05w2-QODXKPVsZATvqkbaTqbTJKctEbvvReUTJnUaV0ms3_d2onywCry6pPo9xO-S4J66E_wPabpgu5EXW8Af1AsNobCc5AU1PzmYS-6bSaV25HyUzwX5A7u5bSj0xbx4Ik1eZRxSw6YBdo0YY_5CfQ3ZubtM65IsYBpmnEed8sHOrfU4XceLcQVugERrZzOYvMvQ"/>
+</div>
+<div class="w-32 h-20 flex-shrink-0 rounded-lg overflow-hidden opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover cursor-pointer" data-alt="An elegant bathroom featuring a freestanding soaking tub, dual vanities, and premium tile work. The design is spa-like and minimalist, emphasizing comfort and high-end living in a corporate PropTech context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOCZXrA_Fi3aoHyJhEMGRBn_TGWVuoOBo7sMLLa3_aSl_BGePNic7nMD8q3CdhtIutq4XaWgNz2eZQHVC_olnjOp3Hc5EkE-lPT5fK7TYPTSro8Klhhwc6vwCd73FQEVQTSkSAurckB8psL4JCZQaOWcYxeSsvT2tIjsGwkhAozu1T150c1WzNyId2iFbhGKbtw-mwAkrBCzW7blNqVdYxWqJjwJBH9v5JuUY5GQxSR-usFrsvcXxGog"/>
+</div>
+<div class="w-32 h-20 flex-shrink-0 rounded-lg overflow-hidden opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover cursor-pointer" data-alt="A wide-angle shot of a private balcony or terrace with outdoor lounge seating and a view of a manicured garden. The scene is bathed in golden hour sunlight, creating a warm and inviting atmosphere for a luxury home." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB43KyzTH6M-xQlyNTQz9jfaYwzj5uq_htBjMZ5HVadYYAHD6HtWEbWDipdVn6sA8lBqLQs6fvQj2kXKFc-vNRbiN2JVL5EWN_tDkjuMXcrw6HnphnDc-8V-3qWk5qkzQAL9dm-X-usEvD79qy80b4cQicR8vShLKHZg1ZR5Gph47g5llNg40kcgT2pvhWRAy3LZKHgDds7wLkE76-_KsuJv5mkRD6FOjJHe70O8P1IOyV5DWWLXpUMoA"/>
+</div>
+<div class="w-32 h-20 flex-shrink-0 rounded-lg overflow-hidden opacity-70 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover cursor-pointer" data-alt="A dedicated home office space with a large desk, ergonomic chair, and built-in shelving. The lighting is focused and professional, showcasing a modern work-from-home setup in a high-tech residential property." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtSNTxri4AoVg80JWyKtvv74sbzolXOyIhLWGQl8sxh4RoBMN-NSLyegaDt4p0WLdomtiMJCOzLXN1F-YBGgm9esaZIFt_XhhHpvufTvAjladZAZv8FyMWAbVQwjACDNdLOjcVEGzsgTHFijJBlLCdv58A4C37TEif9HZwM7SK3jE2oIhmMGhStKDPG6_RvI0nwoC08nabu5VlZvP7jyl0qpXQSJW99AXKTBmBbc8MIUUK_0xBsmtLag"/>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left Column -->
+<div class="lg:col-span-8 space-y-xl">
+<!-- Title & Price -->
+<section>
+<div class="flex justify-between items-start mb-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Skyline Heights Penthouse</h1>
+<p class="font-body-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                42nd Floor, Central Business District, Metropolis
+                            </p>
+</div>
+<div class="text-right">
+<div class="font-headline-lg text-headline-lg text-primary">$4,250,000</div>
+<div class="font-label-md text-on-surface-variant">Est. $18,400/mo</div>
+</div>
+</div>
+<!-- Key Specs -->
+<div class="flex gap-lg p-lg bg-surface-container-low rounded-xl border border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="bg-primary-container/20 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">bed</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md leading-tight">4</div>
+<div class="font-label-sm text-on-surface-variant uppercase tracking-wider">Bedrooms</div>
+</div>
+</div>
+<div class="w-px h-12 bg-outline-variant self-center"></div>
+<div class="flex items-center gap-md">
+<div class="bg-primary-container/20 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">bathtub</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md leading-tight">3.5</div>
+<div class="font-label-sm text-on-surface-variant uppercase tracking-wider">Bathrooms</div>
+</div>
+</div>
+<div class="w-px h-12 bg-outline-variant self-center"></div>
+<div class="flex items-center gap-md">
+<div class="bg-primary-container/20 p-sm rounded-lg">
+<span class="material-symbols-outlined text-primary">square_foot</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md leading-tight">3,450</div>
+<div class="font-label-sm text-on-surface-variant uppercase tracking-wider">Sq Ft</div>
+</div>
+</div>
+<div class="ml-auto flex items-center gap-sm">
+<div class="bg-secondary/10 px-md py-xs rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-secondary">98% Match</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Description -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-md">Property Description</h2>
+<div class="space-y-md font-body-md text-on-surface-variant leading-relaxed">
+<p>Experience the pinnacle of urban living in this breathtaking penthouse atop Skyline Heights. Featuring panoramic views of the city skyline and harbor, this meticulously designed residence offers unparalleled luxury and sophistication. The expansive open-concept living area boasts 12-foot ceilings and floor-to-ceiling glass walls, bathing the space in natural light.</p>
+<p>The chef-caliber kitchen is equipped with professional-grade Sub-Zero and Wolf appliances, custom Italian cabinetry, and a massive Calacatta marble island. The primary suite is a private sanctuary featuring a boutique-style walk-in closet and a spa-inspired bathroom with a freestanding tub and a steam shower.</p>
+</div>
+<button class="text-primary font-label-md mt-md flex items-center gap-xs">Read more <span class="material-symbols-outlined text-sm">expand_more</span></button>
+</section>
+<!-- Amenities -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-md">Amenities</h2>
+<div class="flex flex-wrap gap-md">
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-highest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">pool</span>
+<span class="font-body-sm">Infinity Pool</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-highest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<span class="font-body-sm">24/7 Gym</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-highest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">local_parking</span>
+<span class="font-body-sm">3 Private Spots</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-highest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">security</span>
+<span class="font-body-sm">Concierge Service</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-highest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">wine_bar</span>
+<span class="font-body-sm">Private Wine Cellar</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-highest rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary">smartphone</span>
+<span class="font-body-sm">Home Automation</span>
+</div>
+</div>
+</section>
+<!-- Floor Plan Placeholder -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-md">Floor Plan</h2>
+<div class="h-64 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center bg-surface-container-low">
+<span class="material-symbols-outlined text-4xl text-outline mb-md">architecture</span>
+<p class="font-body-md text-on-surface-variant">Floor plan not available for this listing</p>
+<button class="mt-md text-primary font-label-md border border-primary px-lg py-sm rounded-lg hover:bg-primary/5">Request Plan from Agent</button>
+</div>
+</section>
+<!-- Map & Landmarks -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-md">Location & Nearby</h2>
+<div class="rounded-xl overflow-hidden mb-lg shadow-level-1 h-80">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, professional digital map interface showing a city neighborhood with a specific property marker highlighted in blue. The map is minimalist with subtle color-coded markers for schools, parks, and transit hubs, following the corporate PropTech visual style." data-location="Chicago" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAqSF4pjUy3FLWAkHZbhsSfqFKTAFZGE0bX4Q5MjvKdqWHAoKoG1450QsoONnoZA5Mt9Zl3nVPKwEj_jIzCfTuVnP4lyREs7X8CAo0dT5DUh_1GxRUL1n4PMlqLO9Z400cCv1f1gySS7Kkn9gnxGIwrV5kGdqOxwLOpvkuWlSWBsJboQfdA7aUgqmJqiaAIHBO1GCyQ4WiHD0vkkHeyY6b_N7CnwSghbrpbBLqdQS23EFlGoZvtVvKTw')"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="space-y-sm">
+<div class="flex items-center gap-xs font-label-md text-primary mb-xs">
+<span class="material-symbols-outlined text-sm">school</span> Schools
+                            </div>
+<ul class="text-body-sm text-on-surface-variant space-y-xs">
+<li class="flex justify-between"><span>Metropolis High</span> <span>0.4 mi</span></li>
+<li class="flex justify-between"><span>St. Jude Academy</span> <span>1.2 mi</span></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-xs font-label-md text-primary mb-xs">
+<span class="material-symbols-outlined text-sm">forest</span> Parks
+                            </div>
+<ul class="text-body-sm text-on-surface-variant space-y-xs">
+<li class="flex justify-between"><span>Central Park</span> <span>0.8 mi</span></li>
+<li class="flex justify-between"><span>Skyline Plaza</span> <span>0.2 mi</span></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-xs font-label-md text-primary mb-xs">
+<span class="material-symbols-outlined text-sm">train</span> Transit
+                            </div>
+<ul class="text-body-sm text-on-surface-variant space-y-xs">
+<li class="flex justify-between"><span>Union Station</span> <span>1.5 mi</span></li>
+<li class="flex justify-between"><span>Grand Central Metro</span> <span>0.5 mi</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- EMI Calculator -->
+<section class="bg-surface-container p-lg rounded-xl border border-outline-variant">
+<h2 class="font-headline-md text-headline-md mb-lg">Affordability Calculator</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-lg">
+<div class="space-y-md">
+<div class="flex justify-between font-label-md">
+<span>Loan Amount</span>
+<span class="text-primary">$3,400,000</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-full appearance-none cursor-pointer" type="range"/>
+</div>
+<div class="space-y-md">
+<div class="flex justify-between font-label-md">
+<span>Interest Rate (6.5%)</span>
+<span class="text-primary">6.5%</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-full appearance-none cursor-pointer" type="range"/>
+</div>
+<div class="space-y-md">
+<div class="flex justify-between font-label-md">
+<span>Tenure (30 Years)</span>
+<span class="text-primary">30 Years</span>
+</div>
+<input class="w-full h-1 bg-outline-variant rounded-full appearance-none cursor-pointer" type="range"/>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center bg-white rounded-xl p-lg border border-outline-variant text-center">
+<div class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Estimated Monthly EMI</div>
+<div class="font-display-lg text-display-lg text-primary">$18,450</div>
+<div class="w-full h-px bg-outline-variant my-lg"></div>
+<div class="grid grid-cols-2 w-full gap-md text-left">
+<div>
+<div class="font-label-sm text-on-surface-variant">Principal</div>
+<div class="font-body-md font-semibold">$9,444</div>
+</div>
+<div>
+<div class="font-label-sm text-on-surface-variant">Interest</div>
+<div class="font-body-md font-semibold">$9,006</div>
+</div>
+</div>
+<button class="w-full bg-secondary text-white font-label-md py-md rounded-lg mt-lg flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                                Get AI Loan Analysis
+                            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column / Sidebar -->
+<aside class="lg:col-span-4 space-y-lg">
+<div class="sticky top-24 space-y-lg">
+<!-- Agent Card -->
+<div class="bg-white p-lg rounded-xl shadow-level-1 border border-outline-variant">
+<div class="flex items-center gap-md mb-lg">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of Sarah Jenkins, a premium real estate agent, wearing a smart charcoal blazer. She has a welcoming smile and the background is a high-end minimalist office space, conveying expertise and trust in the PropTech market." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_UtOZDiYQcPQHwZvyzX2adlBNs2qYt13RXP-gZBCb0mHqUh9YjCusl8psVUa08S86ICVWo8drs91a8jxmS__NvLL7escmolbB-wmHu6QRSM-_MeSDPsox5iOiq2hQffwnTlmXkKC09wEfPoDOsir21w_KphKsC5xwmXRP13WE6_AV74PDLdxtmAl24Eta9I-Xrt3zWn-D6YVKf2TzjPJhEd-EtL1YGyzSHa8Lt1rxtDUczILKJEv8fw"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">Sarah Jenkins</h3>
+<p class="font-label-sm text-on-surface-variant">Senior Portfolio Manager</p>
+<div class="flex items-center text-secondary text-xs mt-xs">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="ml-1">(124 Reviews)</span>
+</div>
+</div>
+</div>
+<div class="space-y-md mb-lg">
+<div class="flex items-center gap-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">phone</span>
+<span class="font-body-sm">+1 (555) 234-5678</span>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="font-body-sm">sarah.j@propvista.com</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-label-md py-md rounded-lg shadow-sm hover:opacity-90 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">chat_bubble</span> Message Agent
+                        </button>
+</div>
+<!-- Similar Properties -->
+<div class="space-y-md">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-widest">Similar Properties</h3>
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-level-2 transition-all cursor-pointer">
+<div class="relative h-32">
+<img class="w-full h-full object-cover" data-alt="A modern luxury apartment building exterior at dusk, with lights glowing warmly from inside. The architecture is contemporary, featuring clean lines and large glass balconies, set in a premium urban environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoZR4nIts91vm0IzKjmpMTNFf62H50oio0vhslUaxBzwoffYwXhYlBxj0FHD5lb8VbuVC_F61mmVyX4g6rYzb8GsuqldxpcUaieOv8TtYR68D1KBHjr5r9mWQn15ejTee8SMe-LxotwjFihyowXeMlV_7uSYfEL9OtgCotYGEmsK1G8iqu3iO4Ruqv5-6oHRrMxNgDV6wUh_wPcR3OiUljKW8ORiyyBVEaGE_Sws8edwpHJCRNdxRmYA"/>
+<div class="absolute top-2 right-2 bg-white/90 px-sm py-xs rounded font-label-sm text-primary">$3,800,000</div>
+</div>
+<div class="p-md">
+<h4 class="font-label-md font-bold text-on-surface truncate">The Grande Residences</h4>
+<p class="text-body-sm text-on-surface-variant">3 Bed • 2,800 Sq Ft</p>
+</div>
+</div>
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-level-2 transition-all cursor-pointer">
+<div class="relative h-32">
+<img class="w-full h-full object-cover" data-alt="A bright and airy loft apartment with double-height ceilings, exposed brick walls, and industrial-sized windows. The interior is decorated in a modern Scandinavian style with light wood accents and greenery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhGaLMSXMnvpFxAb_YZ2HUhjcb07HDme3p278dtZ6HMVdcy4Md27j5_QH3LAOUiuARhqWzXI685VMdXOmGB8qAmbXUd4PeZF-Z9zUY1CIX8Q4Jz1hkOv2XDK-mDv6M3TvK26YMFKjB0fqjP9C96Bg2RdYZAC0LyTVG7Jis0mOB3-ahj_I6WEi1bGisOa7dSkl_Fr83CjPTtw7glGv-NJqCEHBW1KgxzxvFK2Qskfnx858FwowFf9RI2g"/>
+<div class="absolute top-2 right-2 bg-white/90 px-sm py-xs rounded font-label-sm text-primary">$4,500,000</div>
+</div>
+<div class="p-md">
+<h4 class="font-label-md font-bold text-on-surface truncate">Harbor View Lofts</h4>
+<p class="text-body-sm text-on-surface-variant">4 Bed • 3,100 Sq Ft</p>
+</div>
+</div>
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-level-2 transition-all cursor-pointer">
+<div class="relative h-32">
+<img class="w-full h-full object-cover" data-alt="An ultra-modern townhouse with a sleek dark facade and floor-to-ceiling glass. The property is surrounded by minimalist landscaping and features a private gated entrance in an exclusive neighborhood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUAxnU77Bo-E28qEEjtPApT3Y70gdUdXd3xWq3MkqsKvnJfrPTpv7OsYWMhP6BooicHPTj8H1IQT8sA-Y3P3hJfYAhMxN3IER3Q5pWfziDbi9IdcgLzTxvwkUSVXuCZN0bGS13WQy28qc7vHjfLORj-2TKKcLCLZauKDilRU3L8XE8sOjqxAw1dpGzrBKMIbH1t4R9spsoo5LiXq4xL6iO9YwQFbm6ccqTCb1IVmHwiaE9JZO1ch3P_w"/>
+<div class="absolute top-2 right-2 bg-white/90 px-sm py-xs rounded font-label-sm text-primary">$3,950,000</div>
+</div>
+<div class="p-md">
+<h4 class="font-label-md font-bold text-on-surface truncate">Vanguard Estates</h4>
+<p class="text-body-sm text-on-surface-variant">3 Bed • 2,950 Sq Ft</p>
+</div>
+</div>
+<button class="w-full text-primary font-label-md py-sm">View all matches</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl max-w-container-max mx-auto gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md font-bold text-on-surface">PropVista CRM</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 PropVista CRM. All rights reserved.</p>
+</div>
+<div class="flex gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">API Docs</a>
+</div>
+</div>
+</footer>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 inset-x-0 bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.08)] py-md px-lg z-50 lg:hidden">
+<div class="flex gap-md max-w-container-max mx-auto">
+<button class="flex-1 border border-primary text-primary font-label-md py-md rounded-lg hover:bg-primary/5 transition-colors">Request Callback</button>
+<button class="flex-1 bg-primary text-white font-label-md py-md rounded-lg shadow-sm hover:opacity-90 transition-opacity">Schedule Visit</button>
+</div>
+</div>
+<!-- Large Screen Sticky Bottom Bar Alternative (Action Bar) -->
+<div class="hidden lg:block fixed bottom-8 right-8 z-40">
+<div class="flex flex-col gap-md">
+<button class="bg-white border border-outline-variant text-on-surface font-label-md px-lg py-md rounded-full shadow-level-2 hover:shadow-lg transition-all flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">calendar_today</span> Schedule Visit
+            </button>
+<button class="bg-primary text-white font-label-md px-lg py-md rounded-full shadow-level-2 hover:opacity-90 transition-all flex items-center gap-md">
+<span class="material-symbols-outlined">call</span> Request Callback
+            </button>
+</div>
+</div>
+<script>
+        // Simple Micro-interactions for Calculator
+        const ranges = document.querySelectorAll('input[type="range"]');
+        ranges.forEach(range => {
+            range.addEventListener('input', (e) => {
+                // Future logic for real-time recalculation
+                // For now just visual feedback
+            });
+        });
+
+        // Tab selection logic for navigation (as per instructions)
+        // No JS needed for the specific active state logic requested in HTML attributes
+    </script>
+</body></html>

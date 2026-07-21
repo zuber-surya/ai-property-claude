@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PropVista CRM | Property Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0c56d0",
+                    "on-primary-fixed": "#001848",
+                    "tertiary-fixed": "#ffdbcf",
+                    "secondary": "#873da6",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#f8d8ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-surface": "#191b23",
+                    "tertiary": "#7b2600",
+                    "inverse-on-surface": "#f0f0fb",
+                    "on-secondary-fixed": "#320047",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c3c6d6",
+                    "surface": "#faf8ff",
+                    "on-secondary": "#ffffff",
+                    "primary": "#003d9b",
+                    "on-secondary-container": "#661a86",
+                    "on-primary-container": "#c4d2ff",
+                    "secondary-container": "#de8ffd",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "secondary-fixed-dim": "#ecb2ff",
+                    "tertiary-container": "#a33500",
+                    "surface-dim": "#d9d9e4",
+                    "on-error": "#ffffff",
+                    "background": "#faf8ff",
+                    "surface-container": "#ededf8",
+                    "primary-container": "#0052cc",
+                    "surface-container-low": "#f3f3fd",
+                    "inverse-surface": "#2e3038",
+                    "surface-bright": "#faf8ff",
+                    "on-surface-variant": "#434654",
+                    "outline": "#737685",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6c228c",
+                    "surface-container-highest": "#e1e2ec",
+                    "surface-variant": "#e1e2ec",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-container-high": "#e7e7f2",
+                    "primary-fixed": "#dae2ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191b23"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "xl": "40px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-shadow { box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); }
+        .ai-glow { box-shadow: 0 0 15px rgba(142, 68, 173, 0.15); }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm">
+<div class="flex justify-between items-center w-full px-lg py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary">PropVista CRM</span>
+<nav class="hidden md:flex gap-lg">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 transition-colors cursor-pointer active:opacity-80" href="#">Properties</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80" href="#">Clients</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80" href="#">Tasks</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:outline-none focus:border-primary w-64 text-body-sm font-body-sm" placeholder="Search properties..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+                        Add Lead
+                    </button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate real estate executive in a clean, modern studio setting with soft lighting. The aesthetic is high-end and professional, featuring a neutral color palette of soft greys and whites, echoing the PropVista brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEGOiKLJ-eWFu-PYu-TtYTjUK4vKuGElIMyp_JrUDARzy2EIw_6u-WOlYbnaiboOoqLyznGin0aT646uqmlc-wa3LQ_tjgir4MGGMaAbSOY8EqSxqbkfRbtJhfrA0_OGXxYqN7oBVlfX_4h0OlpwSj543X-DszhQosrNfy5ts7j18c_ThQgIsuskw9MGphjDrzTy7Wp7_ku8eJpPThY2BAw-eeQuFdZPYsifWp0LQdDm_gbr-zTmf5Rg"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-lg py-xl">
+<!-- Search Context & Filter Banner -->
+<div class="mb-xl">
+<div class="flex items-center justify-between mb-md">
+<h1 class="font-headline-lg text-headline-lg">Properties in San Francisco</h1>
+<div class="flex items-center gap-sm">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Sort by:</span>
+<select class="bg-surface border border-outline-variant rounded-lg px-3 py-1 text-body-sm font-body-sm focus:border-primary">
+<option>Newest First</option>
+<option>Price: Low to High</option>
+<option>AI Match Score</option>
+</select>
+</div>
+</div>
+<!-- Fallback Banner -->
+<div class="bg-secondary-container/10 border border-secondary/20 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-secondary-container p-1.5 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]">filter_alt</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-secondary-container">Showing filter-based results</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We couldn't find exact AI matches for "modern penthouses with organic vegetable gardens", so we've expanded your view.</p>
+</div>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline">Reset Search</button>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-lg">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-72 shrink-0">
+<div class="bg-white rounded-xl p-lg card-shadow border border-outline-variant/30 sticky top-24">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-lg">Filters</h2>
+<button class="text-primary font-label-sm text-label-sm">Clear all</button>
+</div>
+<div class="space-y-lg">
+<!-- Property Type -->
+<div>
+<label class="font-label-md text-label-md block mb-sm">Property Type</label>
+<div class="space-y-2">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Residential</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Commercial</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Industrial</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<label class="font-label-md text-label-md block mb-sm">Price Range</label>
+<div class="flex items-center gap-2">
+<input class="w-full border-outline-variant rounded-lg p-2 text-body-sm font-body-sm focus:ring-primary focus:border-primary" placeholder="Min" type="text"/>
+<span class="text-outline-variant">—</span>
+<input class="w-full border-outline-variant rounded-lg p-2 text-body-sm font-body-sm focus:ring-primary focus:border-primary" placeholder="Max" type="text"/>
+</div>
+</div>
+<!-- Bedrooms -->
+<div>
+<label class="font-label-md text-label-md block mb-sm">Bedrooms</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-2 border border-outline-variant rounded-lg text-body-sm hover:border-primary hover:text-primary transition-colors">1+</button>
+<button class="py-2 border border-outline-variant rounded-lg text-body-sm hover:border-primary hover:text-primary transition-colors">2+</button>
+<button class="py-2 bg-primary text-on-primary border border-primary rounded-lg text-body-sm">3+</button>
+<button class="py-2 border border-outline-variant rounded-lg text-body-sm hover:border-primary hover:text-primary transition-colors">4+</button>
+</div>
+</div>
+<!-- Amenities -->
+<div>
+<label class="font-label-md text-label-md block mb-sm">Amenities</label>
+<div class="space-y-2">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Pool</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Gym</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Parking</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Results Grid -->
+<section class="flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Property Card 1 -->
+<article class="bg-white rounded-xl overflow-hidden card-shadow border border-outline-variant/30 group hover:ai-glow transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stunning modern luxury penthouse in San Francisco featuring floor-to-ceiling glass walls that reveal a breathtaking sunset view of the Golden Gate Bridge. The interior is minimalist with clean lines, high-end materials like marble and light oak, and soft ambient lighting. The overall mood is sophisticated, airy, and premium, captured with a professional wide-angle lens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBtbdtUinLwvC_tC5RToHTpoPF0qiplN-TVJTVHfcIZAtEpcKgudfqyYT98kFA_FILYCCXLl7CSZ0pdQYNdnBWCwXy9WyVc2LN2Uhcv8pWklXJNbs-5-Q6bEKZapEOtEXpjbocP3O26kqjNPGRY6UhK4__I6ScAwfO_DLVf0jPBhP3aYCwID3veMUKuAK8XlQigXiNAONyMAaHpLPgCEeErx9xV-3xpI9DIMb8tX8fCG6UiOsLT1n7g"/>
+<div class="absolute top-4 right-4 bg-secondary/90 text-on-secondary px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md">98% Match</span>
+</div>
+<div class="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-lg backdrop-blur-sm shadow-sm">
+<span class="font-label-md text-label-md text-primary">$4,250,000</span>
+</div>
+</div>
+<div class="p-lg">
+<h3 class="font-headline-md text-headline-md text-xl mb-1 truncate">Lumina Sky Penthouse</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                South of Market, San Francisco
+                            </p>
+<div class="flex items-center justify-between border-t border-outline-variant/30 pt-4">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 3
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 2.5
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 2,150
+                                    </span>
+</div>
+<button class="text-primary hover:bg-primary/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="bg-white rounded-xl overflow-hidden card-shadow border border-outline-variant/30 group hover:ai-glow transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A historic Victorian house in Pacific Heights, San Francisco, meticulously restored with a modern interior. The facade is elegant white with charcoal trim, featuring ornate architectural details. Large bay windows reflect a bright morning light. The surroundings are lush and green, emphasizing a quiet, high-end residential neighborhood. The photography style is crisp and editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdeQZDAxdgYmjTrkCxZ6tk2rvXBnbgyKijsDELA4QJXfC1yr7HoiPtRG0Cn7bsEETWcgCK7XFy6RUa71Kr-L5Y9puskDUwCNSd4mNFMqtU1p-SlKme1cckKIv-O9493b4t7Jc2QA8J6POzTk8XOQAd0hEy9rZYlFNQ3CxjDBVjvweS64aj3_b_95RVt50j6iIaNrXdkHnMJxnWqr0aSz86Wr25nRzhFmsC5yesfBJGCbtWgf4QYhpexg"/>
+<div class="absolute top-4 right-4 bg-secondary/90 text-on-secondary px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md">85% Match</span>
+</div>
+<div class="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-lg backdrop-blur-sm shadow-sm">
+<span class="font-label-md text-label-md text-primary">$3,890,000</span>
+</div>
+</div>
+<div class="p-lg">
+<h3 class="font-headline-md text-headline-md text-xl mb-1 truncate">Restored Pacific Victorian</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Pacific Heights, San Francisco
+                            </p>
+<div class="flex items-center justify-between border-t border-outline-variant/30 pt-4">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 4
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 3
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 3,400
+                                    </span>
+</div>
+<button class="text-primary hover:bg-primary/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Property Card 3 -->
+<article class="bg-white rounded-xl overflow-hidden card-shadow border border-outline-variant/30 group hover:ai-glow transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A contemporary loft apartment in a converted industrial warehouse in the Mission District. High ceilings with exposed concrete and large black-framed industrial windows. The space is filled with natural light, showcasing a designer kitchen and a vibrant, art-filled living area. The style is urban-chic, professional, and full of character, using a rich, warm color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg4MUXyQhNpGdiGXDd6yBUn13V9MAZ7bDXLkZm3g1-x_ux-2tiF0gP1KxMUWC9L5ao80y-W8IfM3w4TXVnVrkmxfBpFsLTaO_MBj5PH2FJLHTkWwpYELQUfoCyBJ_-DOMU91zOxZwxiff1X8Vm9OGNK7Vmh5CSGTa_RxDftjl706ycMFoiBTJVae9quZZA11ME2IBO4Q-PaDvmCP4BkPXd3mHNljfT6IHAiYx_JehlzFU_F3ouNT10lQ"/>
+<div class="absolute top-4 right-4 bg-secondary-container/80 text-on-secondary-container px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md">72% Match</span>
+</div>
+<div class="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-lg backdrop-blur-sm shadow-sm">
+<span class="font-label-md text-label-md text-primary">$1,650,000</span>
+</div>
+</div>
+<div class="p-lg">
+<h3 class="font-headline-md text-headline-md text-xl mb-1 truncate">Mission Industrial Loft</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Mission District, San Francisco
+                            </p>
+<div class="flex items-center justify-between border-t border-outline-variant/30 pt-4">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 2
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 2
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 1,800
+                                    </span>
+</div>
+<button class="text-primary hover:bg-primary/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</article>
+<!-- More Property Cards (Repeated Pattern) -->
+<article class="bg-white rounded-xl overflow-hidden card-shadow border border-outline-variant/30 group transition-all duration-300">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ultra-modern house nestled in the hills above the city, featuring a sleek cantilevered pool and a massive outdoor deck for entertaining. The architecture uses a mix of cedar wood and dark metal. The lighting is low-key, highlighting the pool's blue glow and the warm interior lights as dusk falls over the city skyline. High-end real estate photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsOh_xJHn03_7SWYy84EhpwNBsxDL-urYKtiY8GBqZMGbAjuHf6qaikVa_LRsa1iYBgEAfb6FMWV5gzx6wuNtZhhWvVZxUZt4Py_PAC2vWCFU8RV08jkSucyN6x-v8qkHq_DwI7jPOQRI_yNTfZBrAVRBCZ780fFq30ntrmfCFw8US92pj3PiL3Uzw5yCIcRXij9l_MG-Uj2TWFdXfl7l7w1EszzbuFiOlrUfZ83AsLlT5ILUynZiwzw"/>
+<div class="absolute top-4 right-4 bg-secondary-container/80 text-on-secondary-container px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md">68% Match</span>
+</div>
+<div class="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-lg backdrop-blur-sm shadow-sm">
+<span class="font-label-md text-label-md text-primary">$5,100,000</span>
+</div>
+</div>
+<div class="p-lg">
+<h3 class="font-headline-md text-headline-md text-xl mb-1 truncate">Twin Peaks Horizon Home</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                Twin Peaks, San Francisco
+                            </p>
+<div class="flex items-center justify-between border-t border-outline-variant/30 pt-4">
+<div class="flex gap-4">
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span> 5
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span> 4
+                                    </span>
+<span class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 4,200
+                                    </span>
+</div>
+<button class="text-primary hover:bg-primary/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Placeholder for Loading/More -->
+<div class="col-span-full py-xl flex flex-col items-center justify-center text-center">
+<div class="bg-surface-container rounded-full p-4 mb-md">
+<span class="material-symbols-outlined text-outline text-[32px]">more_horiz</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Want more personalized results?</p>
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded-xl font-label-md text-label-md hover:bg-secondary-container transition-all shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                            Refine AI Search
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl max-w-container-max mx-auto gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md font-bold text-on-surface">PropVista CRM</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 PropVista CRM. All rights reserved.</p>
+</div>
+<nav class="flex gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="#">API Docs</a>
+</nav>
+</div>
+</footer>
+<!-- FAB for adding new property/search -->
+<button class="fixed bottom-8 right-8 bg-primary text-on-primary w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all md:hidden">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<script>
+        // Simple interaction for checkboxes and filter chips
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                // Interactive feedback logic here
+                console.log('Filter changed');
+            });
+        });
+    </script>
+</body></html>

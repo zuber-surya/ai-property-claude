@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PropVista CRM | Property Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#b2c5ff",
+                    "primary-container": "#0052cc",
+                    "on-primary-container": "#c4d2ff",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191b23",
+                    "tertiary-container": "#a33500",
+                    "secondary": "#873da6",
+                    "surface-container": "#ededf8",
+                    "secondary-fixed": "#f8d8ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "on-surface-variant": "#434654",
+                    "inverse-surface": "#2e3038",
+                    "surface": "#faf8ff",
+                    "surface-container-high": "#e7e7f2",
+                    "surface-bright": "#faf8ff",
+                    "primary": "#003d9b",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9d9e4",
+                    "on-secondary-container": "#661a86",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "outline": "#737685",
+                    "inverse-on-surface": "#f0f0fb",
+                    "background": "#faf8ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-container-highest": "#e1e2ec",
+                    "inverse-primary": "#b2c5ff",
+                    "on-secondary-fixed": "#320047",
+                    "surface-container-low": "#f3f3fd",
+                    "secondary-fixed-dim": "#ecb2ff",
+                    "on-primary-fixed": "#001848",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "surface-tint": "#0c56d0",
+                    "on-background": "#191b23",
+                    "tertiary": "#7b2600",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#6c228c",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface-variant": "#e1e2ec",
+                    "primary-fixed": "#dae2ff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "secondary-container": "#de8ffd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #003d9b;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-full py-xl px-md w-64 bg-surface-container-lowest border-r border-outline-variant transition-all duration-150">
+<div class="flex items-center gap-sm mb-xl px-sm">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-black text-primary leading-none">PropVista</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Admin Console</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
+<span class="font-label-md text-label-md">Properties</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">Leads</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Agents</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Transactions</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-lg space-y-xs">
+<button class="w-full flex items-center justify-center gap-sm bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md shadow-sm hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                New Listing
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 bg-background overflow-hidden">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center px-lg w-full h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm z-10">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-body-sm font-body-sm focus:ring-2 focus:ring-primary/20" placeholder="Search properties..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-primary/10 text-primary px-md py-2 rounded-full font-label-md text-label-md flex items-center gap-xs hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                    AI Insights
+                </button>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female real estate administrative manager in a bright office. She is smiling warmly at the camera, wearing a navy blue blazer over a white shirt. The background is softly blurred, showing a modern, high-tech workspace with glass walls and minimalist furniture in a premium corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYOSK8kIQJ7mUv8El1DHc3atVp_gTb2CnTa72tM5XYgKVNI2sWTgS4jhfs0SAte-3r2zqdsJaza3SztnB213UlkXLgLWbE4IZHPXMAXy1a_Sg9j1IjPB1Bod14EsEkwpqgaogpI5Cp1uwzujpGi9vjjkYdwpIR_PDKGUWTLudkyqLbzxmuI7mcugtwiJGrfrXdH_QxZAVPeG8lOvi7FCesGShFX39qFIqr_lGmWRA0_jW6dfP-_bkgFQ"/>
+</div>
+</div>
+</header>
+<!-- Editor Content Area -->
+<div class="flex-1 overflow-y-auto">
+<div class="max-w-[1200px] mx-auto p-xl">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-xl">
+<div>
+<div class="flex items-center gap-xs text-primary font-label-md text-label-md mb-xs">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                            Back to Properties
+                        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Edit Listing: Lumina Sky Penthouse</h2>
+</div>
+<!-- Status Toggle Group -->
+<div class="flex bg-surface-container-high p-1 rounded-xl">
+<button class="px-md py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Draft</button>
+<button class="px-md py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Pending</button>
+<button class="px-md py-2 bg-surface-container-lowest text-primary font-bold rounded-lg shadow-sm">Published</button>
+</div>
+</div>
+<!-- Tabs Navigation -->
+<div class="flex gap-xl border-b border-outline-variant mb-xl overflow-x-auto scrollbar-hide">
+<button class="relative pb-md text-primary font-bold border-b-2 border-primary whitespace-nowrap">
+<span class="font-label-md text-label-md">Basic Info</span>
+</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors">Media</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors">Amenities</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors">Location</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors">Status &amp; Flags</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Main Form Section -->
+<div class="lg:col-span-2 space-y-xl">
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/50">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">General Information</h3>
+<div class="space-y-lg">
+<div class="grid grid-cols-1 gap-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Listing Title</label>
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" type="text" value="Lumina Sky Penthouse"/>
+</div>
+<div class="grid grid-cols-1 gap-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Description</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none" rows="6">An architectural masterpiece rising above the city skyline. This 5,400 sq. ft. penthouse features floor-to-ceiling glass walls, a private infinity pool, and 360-degree views of the metropolis. Designed by acclaimed visionary Elena Varkova, the interiors blend raw marble with warm oak for a sensory living experience unlike any other.</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Price (USD)</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-md pl-8 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none" type="text" value="8,450,000"/>
+</div>
+</div>
+<div class="space-y-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Property Area (sq. ft.)</label>
+<input class="w-full bg-surface border border-outline-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none" type="text" value="5,420"/>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-lg">
+<div class="space-y-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Bedrooms</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none appearance-none">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option selected="">4</option>
+<option>5+</option>
+</select>
+</div>
+<div class="space-y-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Bathrooms</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none appearance-none">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option selected="">4.5</option>
+<option>5+</option>
+</select>
+</div>
+<div class="space-y-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Parking</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg p-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none appearance-none">
+<option>0</option>
+<option>1</option>
+<option selected="">2</option>
+<option>3+</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Flags Section -->
+<div class="space-y-xl">
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/50 h-fit">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-lg">Listing Flags</h3>
+<div class="space-y-md">
+<label class="flex items-center gap-md p-md rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Featured Listing</p>
+<p class="text-xs text-on-surface-variant">Prioritize in search results</p>
+</div>
+</label>
+<label class="flex items-center gap-md p-md rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Mark as Sold</p>
+<p class="text-xs text-on-surface-variant">Remove from active list</p>
+</div>
+</label>
+<label class="flex items-center gap-md p-md rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">On Hold</p>
+<p class="text-xs text-on-surface-variant">Temporarily pause listing</p>
+</div>
+</label>
+<label class="flex items-center gap-md p-md rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Archived</p>
+<p class="text-xs text-on-surface-variant">Move to permanent storage</p>
+</div>
+</label>
+</div>
+<div class="mt-xl p-md bg-secondary-fixed text-on-secondary-fixed rounded-lg">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="font-label-md text-label-md">AI Property Match</span>
+</div>
+<p class="text-xs mb-md">This property is a 94% match for 12 active leads in your CRM database.</p>
+<button class="w-full py-2 bg-on-secondary-fixed text-secondary-fixed rounded font-label-md text-label-md hover:opacity-90 transition-opacity">
+                                    Notify Leads
+                                </button>
+</div>
+</section>
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant/50">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-lg">Preview</h3>
+<div class="aspect-video w-full rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="A luxurious penthouse living room at dusk. High-end minimalist design with marble floors, a plush oversized white sofa, and a sleek dark wood coffee table. Massive floor-to-ceiling windows reveal a sprawling city skyline with twinkling lights. The lighting is moody and sophisticated with soft warm spotlights and a cool blue evening sky glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOYK8xrQQhSVpt2252jAfC-8vdQB6LyaZ5_pXYOmkWiWHkS5lrcUevId4f322BAfPXcJ8HvrZqFnf5lr0MlMi4Zv_Chf39UknwRkBBnDNaCXlpKqjdUa9paIy9E3ulgRcxytPkaYpAw61jiN40uutlj7rIFfEIg9iTJ7dwDKcIkBGqt4FWqIKHFY1AeSiVMDIaQAQWr1prK955o5c2-2Q7GxakK-AlptwxtwKBtDhBpmuzokw9YS8vGQ"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-surface-container-lowest/20 backdrop-blur-md border border-white/30 text-white px-md py-2 rounded-full font-label-md text-label-md flex items-center gap-sm">
+<span class="material-symbols-outlined">visibility</span>
+                                        Full Preview
+                                    </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="h-20 bg-surface-container-lowest border-t border-outline-variant px-xl flex items-center justify-between z-10">
+<p class="text-on-surface-variant font-body-sm text-body-sm italic hidden md:block">Last saved: 2 minutes ago</p>
+<div class="flex items-center gap-md ml-auto">
+<button class="px-xl py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg transition-all active:scale-95">
+                    Discard
+                </button>
+<button class="px-xl py-3 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-md hover:opacity-95 active:scale-95 transition-all">
+                    Save Changes
+                </button>
+</div>
+</footer>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple tab switching visual logic
+        document.querySelectorAll('button[class*="pb-md"]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Reset all
+                document.querySelectorAll('button[class*="pb-md"]').forEach(btn => {
+                    btn.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                    btn.classList.add('text-on-surface-variant');
+                });
+                // Set active
+                this.classList.remove('text-on-surface-variant');
+                this.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+            });
+        });
+
+        // Status toggle logic
+        const statusButtons = document.querySelectorAll('.bg-surface-container-high button');
+        statusButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                statusButtons.forEach(b => {
+                    b.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+                    b.classList.add('text-on-surface-variant');
+                });
+                this.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+                this.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

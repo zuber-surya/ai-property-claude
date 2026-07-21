@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Properties | PropVista CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e5e5ea;
+            border-radius: 10px;
+        }
+        .property-card-shadow {
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#0c56d0",
+                        "on-primary-fixed": "#001848",
+                        "tertiary-fixed": "#ffdbcf",
+                        "secondary": "#873da6",
+                        "on-tertiary-container": "#ffc6b2",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#f8d8ff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "on-surface": "#191b23",
+                        "tertiary": "#7b2600",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-secondary-fixed": "#320047",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "surface": "#faf8ff",
+                        "on-secondary": "#ffffff",
+                        "primary": "#003d9b",
+                        "on-secondary-container": "#661a86",
+                        "on-primary-container": "#c4d2ff",
+                        "secondary-container": "#de8ffd",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "secondary-fixed-dim": "#ecb2ff",
+                        "tertiary-container": "#a33500",
+                        "surface-dim": "#d9d9e4",
+                        "on-error": "#ffffff",
+                        "background": "#faf8ff",
+                        "surface-container": "#ededf8",
+                        "primary-container": "#0052cc",
+                        "surface-container-low": "#f3f3fd",
+                        "inverse-surface": "#2e3038",
+                        "surface-bright": "#faf8ff",
+                        "on-surface-variant": "#434654",
+                        "outline": "#737685",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6c228c",
+                        "surface-container-highest": "#e1e2ec",
+                        "surface-variant": "#e1e2ec",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container-high": "#e7e7f2",
+                        "primary-fixed": "#dae2ff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191b23"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "sm": "12px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm">
+<nav class="flex justify-between items-center w-full px-lg py-md max-w-container-max mx-auto h-16">
+<!-- Brand -->
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary">PropVista CRM</span>
+<!-- Nav Links -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 cursor-pointer active:opacity-80">Properties</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">Clients</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">Tasks</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">Analytics</a>
+</div>
+</div>
+<!-- Search & Actions -->
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-body-sm w-64 transition-all" placeholder="Search property or client..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a real estate agent in high-end office attire, with soft focus on a modern architectural building in the background. The lighting is warm and cinematic, following a clean corporate aesthetic with blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr6DWHN0LLU9SXb6wzPbA2UwEHg4ohictXpbDoEFIU7za-DhHFcSAzDanv5bUG7z-93ruVOs08LHxlxZGOnoSWMrhd9fN0ybIzdx79xBq_Q7pGqEds6x-kTZgpnmkVDlyYVNUUTqlMKxAOPBeNU9SCxZhIw9Z3hky-uxmjpMIsih1xxtwkqchjEiPwFt2JO9tgYz72WYyAro1IuR03NMWpjaUhZsNtAZyqSYY-jWXNEkECPkv0LyVHxw"/>
+</div>
+</div>
+<button class="hidden sm:flex bg-primary-container text-on-primary hover:opacity-90 px-md py-2 rounded-lg font-label-md transition-all items-center gap-base">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Add Lead
+                </button>
+</div>
+</nav>
+</header>
+<main class="flex-grow flex flex-col md:flex-row w-full max-w-container-max mx-auto px-margin-mobile md:px-lg gap-gutter py-lg">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-72 flex-shrink-0 flex flex-col gap-lg">
+<div class="bg-surface-container-lowest p-lg rounded-xl property-card-shadow border border-outline-variant/30 sticky top-24">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-[18px] text-on-surface">Filters</h3>
+<button class="text-primary font-label-sm hover:underline">Clear all</button>
+</div>
+<!-- Price Range -->
+<div class="mb-lg">
+<label class="block font-label-md text-on-surface-variant mb-base">Price Range</label>
+<div class="flex items-center gap-base mb-md">
+<input class="w-full border border-outline-variant rounded-lg px-2 py-1.5 text-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none" type="text" value="$500k"/>
+<span class="text-outline-variant">-</span>
+<input class="w-full border border-outline-variant rounded-lg px-2 py-1.5 text-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none" type="text" value="$2.5M"/>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<!-- Property Type -->
+<div class="mb-lg">
+<label class="block font-label-md text-on-surface-variant mb-base">Property Type</label>
+<div class="space-y-2">
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-primary transition-colors">Residential</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-primary transition-colors">Commercial</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-primary transition-colors">Industrial</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-primary transition-colors">Land</span>
+</label>
+</div>
+</div>
+<!-- Bedrooms -->
+<div class="mb-lg">
+<label class="block font-label-md text-on-surface-variant mb-base">Bedrooms</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-outline-variant text-body-sm hover:border-primary transition-all">1+</button>
+<button class="flex-1 py-2 rounded-lg bg-primary-container text-on-primary border border-primary text-body-sm">3+</button>
+<button class="flex-1 py-2 rounded-lg border border-outline-variant text-body-sm hover:border-primary transition-all">5+</button>
+</div>
+</div>
+<!-- Amenities -->
+<div>
+<label class="block font-label-md text-on-surface-variant mb-base">Amenities</label>
+<div class="space-y-2">
+<label class="flex items-center gap-md cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm">Pool</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm">Security System</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm">Smart Home Tech</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-sm">Gym</span>
+</label>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<section class="flex-grow">
+<!-- Content Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-md mb-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Properties in Miami, FL</h1>
+<p class="text-body-sm text-on-surface-variant">Showing 1-12 of 248 properties matching your criteria</p>
+</div>
+<div class="flex items-center gap-sm self-end sm:self-auto">
+<div class="flex bg-surface-container-high rounded-lg p-1">
+<button class="p-2 bg-surface-container-lowest shadow-sm rounded-md text-primary">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+<div class="relative group">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant rounded-lg pl-3 pr-10 py-2.5 text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary cursor-pointer transition-all">
+<option>Relevance</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest Listed</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid / Responsive Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Property Card 1 (AI Match) -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden property-card-shadow border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern architectural villa in Miami at sunset. The building features floor-to-ceiling glass walls, a sleek white exterior, and an illuminated infinity pool reflecting the warm orange and purple sky. Lush tropical greenery surrounds the property, creating a sense of luxury and privacy. Shot with wide-angle lens, cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7YXe2lU9Dt6l8saX4MybOwtpkF1sRKgVTF2QnrNv5JX_u1sQYZBFE5gKaqIFtzMQqO9a0Mc5x0j9qAbPgpmNx9XmrhkgKpoKMh5T9oSt9G-x0gjir-dmJnZVXsWbokMVU-ti8-F29i7yVuwCxZP7seuoO-Dz6bhwD0FFhEf6cfG2SNh7dCmIriomMtdIsMcp0XyZhwPBrU2YwjGvLoLxCJQyQTjzlLgTg2pF4m3-l8VTmvgvV30iM1g"/>
+<div class="absolute top-md right-md">
+<button class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-md left-md bg-secondary/90 text-white px-3 py-1 rounded-full text-label-sm backdrop-blur-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                            92% Match
+                        </div>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[20px] text-on-surface">$2,450,000</h4>
+<span class="text-label-sm text-primary bg-primary-container/10 px-2 py-0.5 rounded uppercase">Featured</span>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">842 Ocean Drive, Coral Gables, FL 33134</p>
+<div class="flex items-center gap-md border-t border-outline-variant/30 pt-md mt-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span class="text-label-md">4</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span>
+<span class="text-label-md">3.5</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="text-label-md">3,200 sqft</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden property-card-shadow border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A contemporary high-rise apartment interior in downtown Miami. Minimalist design with light wood flooring, dark grey accents, and a large balcony overlooking the urban skyline and harbor. The space is bright and airy with high-end furniture. Morning light creates soft shadows, reinforcing a professional and sophisticated atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDc6HW47dhhpYK9pGiNe_BAkWU_tZXaii3DvmVn27CTZsdSxpx9dt2lfXmqc6Gl3qZqmSPMHT5do96odNbr9kvrzn7_WuLzypt0CNVP4auAm5Gwe0yPFXHa_fD37_JhRPutX3-l_cgS9bGRsX6eomi4yzq4uieZib2_dkOL538I9cktjKhKARuK1uiYDJOpcqPNkGMIiRfivHdZfMsZ7y8rVWjtnSNrIKzZoFRNtteXQOI-_8Q3HIwdw"/>
+<div class="absolute top-md right-md">
+<button class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[20px] text-on-surface">$1,150,000</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">Brickell Key, Tower 2, Unit 4501</p>
+<div class="flex items-center gap-md border-t border-outline-variant/30 pt-md mt-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span class="text-label-md">2</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span>
+<span class="text-label-md">2</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="text-label-md">1,450 sqft</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 3 (AI Match) -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden property-card-shadow border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A historic Art Deco residence in Miami Beach with pastel colors and tropical landscaping. The architecture is symmetrical with curved balconies and chrome railings. Bright daylight captures the vibrant energy of the neighborhood. The image has a clean, high-contrast look consistent with luxury real estate photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuNo5qhvIzifu1p3wTXnR6yHu_HiG3bKfbwP2HgA4h1-hiksblBkXqkIqbJZnBf4HLyGHiVr1GR2UY2Skf8OsiwLYYEcC-sVxegOAqJIqeA4l-2JKgXhpxU1x2x_VJEcMMXK1MmYX1Wf4eioAmKOT7zOwoB0n-g7B60F9BeZlWoRP7Xz5UifRkuGU4AMyLilNcMLe8ELB7P6jCr2TdRcVGCk4ZJ6XML0pE-3jBAiCCXLPflExRBbEhA"/>
+<div class="absolute top-md right-md">
+<button class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-md left-md bg-secondary/90 text-white px-3 py-1 rounded-full text-label-sm backdrop-blur-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                            88% Match
+                        </div>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[20px] text-on-surface">$890,000</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">1200 Collins Avenue, Miami Beach, FL</p>
+<div class="flex items-center gap-md border-t border-outline-variant/30 pt-md mt-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span class="text-label-md">3</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span>
+<span class="text-label-md">2</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="text-label-md">1,820 sqft</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 4 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden property-card-shadow border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sprawling modern estate in Coconut Grove with a large outdoor kitchen and wooden deck. Large oak trees with Spanish moss provide shade over a perfectly manicured lawn. The architecture is a mix of stone and dark wood. The mood is tranquil and private, with soft, dappled sunlight filtering through the canopy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzCaJ74fAV5OXFhNTwUxyPoZyA4dawtaZUi2B8Y7YcbyotjqbsUJ01RA2xbCh0z4QWs5svQCL0CY8QPfqCcxlwG1M_u7I17GboeVrxWDBm99siDOhpqq3fyJnwORw0gSGB4fnflfSb1jD1fefsKENT8y2LHL_XF7ETFwV5AnG2UR6dh5aAvYXA--QuUn1v67cPZiWKG6OrHaFiiKB8b3FV9zekbF4b8TAeIyzgHsDgXZQQRwrouVhLQQ"/>
+<div class="absolute top-md right-md">
+<button class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[20px] text-on-surface">$4,200,000</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">2234 Tigertail Avenue, Coconut Grove, FL</p>
+<div class="flex items-center gap-md border-t border-outline-variant/30 pt-md mt-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span class="text-label-md">6</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span>
+<span class="text-label-md">5.5</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="text-label-md">5,800 sqft</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 5 (AI Match) -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden property-card-shadow border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury loft apartment with double-height ceilings and exposed brick walls in the Wynwood Arts District. The space is filled with modern art and designer furniture. Large industrial windows offer views of colorful murals outside. Bright midday sun fills the room, highlighting the high-performance lifestyle aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcW9Qyw0rEOvFOYQUHdwWcXwTCaNxlcN4ReoGm0qb2oJ5Wi7OR8_DRZfmwEooCMtYJ_4j3JKQfWkIkLlcKTeB_QOIuzQHabEarnefNytIieM4dg0yDeaMQg8oSZGtK3-Upo45IUtt3FvGAhNMJb_gu_7lAZcCiCxa1DkDXWT4U-o0P3sgITikldU9528ZFrD12-_0GIPz31eC2oArfy2X1jMVw8yzeyNdecEkx02zsLsQb7NHlT_SIlA"/>
+<div class="absolute top-md right-md">
+<button class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-md left-md bg-secondary/90 text-white px-3 py-1 rounded-full text-label-sm backdrop-blur-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                            95% Match
+                        </div>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[20px] text-on-surface">$1,350,000</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">Wynwood Lofts, Unit 203, Miami, FL</p>
+<div class="flex items-center gap-md border-t border-outline-variant/30 pt-md mt-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span class="text-label-md">2</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span>
+<span class="text-label-md">2</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="text-label-md">2,100 sqft</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 6 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden property-card-shadow border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pristine white beach house with direct ocean access in Sunny Isles. The architecture is modern and sculptural, with large balconies that wrap around the building. The sand is white and the water is turquoise blue. Shot at a low angle to emphasize the height and grandeur of the structure under a clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfn71dbs4HxQk2qJefa1LUF3V--aYzqEDzLwjsXq-A8POsCOq8SONMEMhXqQz2t-JUDHXLhgCi54l1J5xDVn7cvL2LBtcMoMO2rdnxRvoHeo9jFZIivm1djaKwe1Rq0Qx0tKrpo3J8BoQy2lXrPh1ONFdnNNY0zj5DrdCMYNlQSZJ6YfnjowpYMtZ8OaHkfRAV_rLIuGS5ZzkKYD7-2m1huzGTZLy3CTklC8vO5fsgz4rAOT_pnLZ0sg"/>
+<div class="absolute top-md right-md">
+<button class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-lg flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-[20px] text-on-surface">$5,750,000</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-1">Oceanfront Estate, 1001 Collins Ave</p>
+<div class="flex items-center gap-md border-t border-outline-variant/30 pt-md mt-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bed</span>
+<span class="text-label-md">5</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">bathtub</span>
+<span class="text-label-md">6</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="text-label-md">4,800 sqft</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-base mt-xl py-lg">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 bg-primary text-white rounded-lg font-label-md">1</button>
+<button class="w-10 h-10 hover:bg-surface-container-high rounded-lg font-label-md transition-colors">2</button>
+<button class="w-10 h-10 hover:bg-surface-container-high rounded-lg font-label-md transition-colors">3</button>
+<span class="text-outline-variant">...</span>
+<button class="w-10 h-10 hover:bg-surface-container-high rounded-lg font-label-md transition-colors">21</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-lg py-xl max-w-container-max mx-auto gap-md">
+<div class="flex flex-col gap-xs items-center md:items-start">
+<span class="font-label-md text-label-md font-bold text-on-surface">PropVista CRM</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 PropVista CRM. All rights reserved.</p>
+</div>
+<div class="flex gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">API Docs</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Layer for heart toggling -->
+<script>
+        document.querySelectorAll('button .material-symbols-outlined').forEach(icon => {
+            if (icon.textContent === 'favorite') {
+                icon.parentElement.addEventListener('click', function() {
+                    const isFilled = this.querySelector('.material-symbols-outlined').style.fontVariationSettings.includes("'FILL' 1");
+                    if (isFilled) {
+                        this.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 0";
+                        this.classList.remove('text-error');
+                        this.classList.add('text-on-surface-variant');
+                    } else {
+                        this.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 1";
+                        this.classList.add('text-error');
+                        this.classList.remove('text-on-surface-variant');
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

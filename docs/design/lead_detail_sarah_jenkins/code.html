@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PropVista CRM - Lead Detail: Sarah Jenkins</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#380d00",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#b2c5ff",
+                    "tertiary-container": "#a33500",
+                    "surface-container": "#ededf8",
+                    "tertiary": "#7b2600",
+                    "on-primary": "#ffffff",
+                    "background": "#faf8ff",
+                    "secondary": "#873da6",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface-dim": "#d9d9e4",
+                    "on-tertiary-container": "#ffc6b2",
+                    "on-secondary-container": "#661a86",
+                    "surface-tint": "#0c56d0",
+                    "on-surface": "#191b23",
+                    "surface-container-high": "#e7e7f2",
+                    "secondary-fixed": "#f8d8ff",
+                    "primary-container": "#0052cc",
+                    "error": "#ba1a1a",
+                    "outline": "#737685",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f3fd",
+                    "surface": "#faf8ff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "inverse-on-surface": "#f0f0fb",
+                    "secondary-fixed-dim": "#ecb2ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-surface-variant": "#434654",
+                    "secondary-container": "#de8ffd",
+                    "primary": "#003d9b",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-secondary-fixed-variant": "#6c228c",
+                    "on-primary-container": "#c4d2ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-background": "#191b23",
+                    "surface-container-highest": "#e1e2ec",
+                    "on-secondary-fixed": "#320047",
+                    "surface-bright": "#faf8ff",
+                    "on-primary-fixed": "#001848",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3038",
+                    "surface-variant": "#e1e2ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-shadow { box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); }
+        .ai-gradient { background: linear-gradient(135deg, #873da6 0%, #0052cc 100%); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full w-64 bg-surface-container-low border-r border-outline-variant py-lg px-md space-y-md z-30">
+<div class="flex flex-col space-y-xs mb-lg px-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary">PropVista CRM</span>
+<div class="flex items-center gap-sm pt-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of a real estate agent workspace with high-end tech, minimalist office decor, soft natural light through large windows, corporate modern aesthetic in San Francisco." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDfj-NcFZ6555frKn6DAYSymFT2cQGjqpK2-4f4EaFW7-IbHTlTNe5tg4D48AHT-acc9piDNKsM72zw0LWApRDtQrQ-BZk_JT8D35cLEg7kG4bm4kP40TFGG27lZNzSRj1rhax9s07XkxL8UAdazLqbesjEsBqEbouJadJczhK_HRruD4Zb2lEhl4SfiNroxxf6_A0AL6uokQhu_95zfcs5RDF37mOQoGYP6kLcthntbCcqIVbpVqIBA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Lead Manager</span>
+<span class="text-[12px] text-on-surface-variant">PropVista CRM</span>
+</div>
+</div>
+</div>
+<button class="w-full py-sm px-md bg-primary text-on-primary rounded-lg font-label-md flex items-center justify-center gap-xs hover:opacity-90 active:scale-95 duration-200 transition-all mb-md">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                New Lead
+            </button>
+<nav class="flex-1 space-y-xs">
+<div class="flex items-center gap-md px-md py-sm cursor-pointer transition-all hover:bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm cursor-pointer transition-all bg-primary-container text-on-primary-container rounded-lg font-bold">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-md text-label-md">Insights</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm cursor-pointer transition-all hover:bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Documents</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm cursor-pointer transition-all hover:bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">History</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm cursor-pointer transition-all hover:bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm cursor-pointer transition-all hover:bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopAppBar -->
+<header class="h-16 bg-surface flex items-center justify-between px-gutter border-b border-outline-variant shadow-sm z-20">
+<div class="flex items-center gap-xl">
+<div class="flex space-x-lg">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 font-semibold" href="#">Leads</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Properties</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Clients</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Calendar</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tasks</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative flex items-center bg-surface-container-low rounded-full px-md py-xs border border-outline-variant w-64">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full outline-none px-xs" placeholder="Search..." type="text"/>
+</div>
+<button class="p-xs text-on-surface-variant hover:text-primary cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Portrait of a modern real estate agent, professional and friendly, minimalist business attire, neutral background, bright high-key lighting, corporate minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaCe3H1QDvz5UVGndL75CsKS787YaUNs-pWW8BHNwYx3aS9CCZdIDmt3MvRLfnwmreTazV0LCWJ9lE6n2FHUc1xh0JKX3HOKJJGHuRv6fiopzmg9VRndVuq8D6mtUnuQ74bou40jXdAVfp6XDipbw0txFSWewgECLT1FP0szTPH__xBrh3gR_hhoUi81AJD0ZCJ5HqQ_HKjmWwzwjXbZORWMvfsCMbRnlv-D6DrTisIP26tM-xrhiF9Q"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<main class="flex-1 overflow-y-auto bg-surface-container-low/30 hide-scrollbar">
+<div class="max-w-container-max mx-auto px-gutter py-lg space-y-lg">
+<!-- Detail Header Section -->
+<section class="bg-surface rounded-xl p-lg custom-shadow border border-outline-variant">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Sarah Jenkins</h1>
+<span class="px-sm py-[2px] bg-primary/10 text-primary rounded-full font-label-md text-[12px] uppercase tracking-wider">Contacted</span>
+<span class="px-sm py-[2px] bg-secondary/10 text-secondary rounded-full font-label-md text-[12px] flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                                        Source: AI Chatbot
+                                    </span>
+</div>
+<div class="flex flex-wrap items-center gap-lg mt-xs">
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                                        +1 (555) 234-5678
+                                    </div>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                                        sarah.j@example.com
+                                    </div>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                        San Francisco, CA
+                                    </div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex flex-col items-end mr-md">
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Pipeline Stage</span>
+<div class="flex items-center gap-xs cursor-pointer group">
+<span class="font-label-md text-primary group-hover:underline">Move to Next Stage</span>
+<span class="material-symbols-outlined text-primary text-[18px]">expand_more</span>
+</div>
+</div>
+<button class="p-sm rounded-lg bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="py-sm px-lg bg-primary text-on-primary rounded-lg font-label-md hover:shadow-lg transition-all active:scale-95">
+                                    Send Email
+                                </button>
+</div>
+</div>
+</section>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Left Column: Notes, Reminders, History -->
+<div class="md:col-span-8 space-y-lg">
+<!-- Notes & Call Logs -->
+<div class="bg-surface rounded-xl p-lg custom-shadow border border-outline-variant">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Notes &amp; Call Logs</h2>
+<div class="flex gap-sm">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">filter_list</span></button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">search</span></button>
+</div>
+</div>
+<div class="space-y-lg">
+<!-- Add Note Input -->
+<div class="relative border-b border-outline-variant pb-lg">
+<div class="flex items-start gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
+</div>
+<div class="flex-1 relative">
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-md font-body-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none h-24 transition-all" placeholder="Add a new note..."></textarea>
+<div class="absolute bottom-3 right-3 flex gap-sm">
+<button class="p-xs hover:bg-surface-container-highest rounded transition-colors"><span class="material-symbols-outlined text-[20px]">attach_file</span></button>
+<button class="bg-primary text-on-primary px-md py-xs rounded-lg text-label-sm font-bold">Post Note</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline -->
+<div class="space-y-lg relative before:content-[''] before:absolute before:left-[15px] before:top-4 before:bottom-0 before:w-[2px] before:bg-outline-variant">
+<!-- Timeline Item 1 -->
+<div class="flex gap-md relative">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">note</span>
+</div>
+<div class="flex-1 bg-surface-container-low rounded-xl p-md border border-outline-variant">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-on-surface">Alex Rivera</span>
+<span class="bg-surface-container-highest px-xs py-[2px] rounded text-[10px] text-on-surface-variant uppercase font-bold">Admin</span>
+</div>
+<span class="text-body-sm text-outline">Oct 24, 02:30 PM</span>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                                                    Sarah is looking for a modern penthouse with at least 3 bedrooms. Budget is flexible for the right view. Mentioned interest in the Lumina complex specifically.
+                                                </p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex gap-md relative">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-[16px] text-outline">call</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-on-surface">Outbound Call - 4m 12s</span>
+</div>
+<span class="text-body-sm text-outline">Oct 24, 11:45 AM</span>
+</div>
+<p class="font-body-sm text-outline mt-xs italic">Initial qualification call completed successfully.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Follow-up Reminders -->
+<div class="bg-surface rounded-xl p-lg custom-shadow border border-outline-variant">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Follow-up Reminders</h2>
+<button class="flex items-center gap-xs font-label-md text-primary hover:bg-primary/5 px-md py-xs rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                        Add reminder
+                                    </button>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-error-container/10 border border-error/20 rounded-xl">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-error">event</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Schedule Site Visit</span>
+<span class="text-[12px] text-error font-medium">Due Oct 28</span>
+</div>
+</div>
+<button class="p-xs rounded-full hover:bg-on-surface/5"><span class="material-symbols-outlined text-outline">more_vert</span></button>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low border border-outline-variant rounded-xl opacity-60">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface line-through">Send pricing brochure</span>
+<span class="text-[12px] text-on-surface-variant">Completed Oct 24</span>
+</div>
+</div>
+<button class="p-xs rounded-full hover:bg-on-surface/5"><span class="material-symbols-outlined text-outline">more_vert</span></button>
+</div>
+</div>
+</div>
+<!-- Stage History -->
+<div class="bg-surface rounded-xl p-lg custom-shadow border border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-lg">Stage History</h2>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm px-md py-sm bg-surface-container-low rounded-xl border border-outline-variant">
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<span class="text-body-sm text-outline">New</span>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+<span class="font-label-md text-primary">Contacted</span>
+</div>
+<span class="text-[11px] text-on-surface-variant font-medium mt-[2px]">Oct 24, 10:15 AM</span>
+</div>
+</div>
+<div class="flex-1 h-[2px] bg-outline-variant/30 border-t border-dashed border-outline-variant"></div>
+<div class="text-body-sm text-outline flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">hourglass_empty</span>
+                                        Time in current stage: 1d 4h
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Column -->
+<div class="md:col-span-4 space-y-lg">
+<!-- AI Match Card -->
+<div class="ai-gradient rounded-xl p-lg text-on-primary shadow-lg overflow-hidden relative group">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+<div class="relative z-10 flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-[12px] uppercase tracking-tighter opacity-80">AI Property Match</span>
+<div class="bg-white/20 px-sm py-xs rounded-full text-[14px] font-bold">98% Match</div>
+</div>
+<div class="flex gap-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-white/20">
+<img class="w-full h-full object-cover" data-alt="Stunning luxury penthouse interior, floor-to-ceiling glass walls overlooking San Francisco skyline at sunset, ultra-modern furniture, high ceilings, warm golden hour lighting, cinematic photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAp8v09zSCc2vjs3HA6lzdLfk16dnnmx9r9NikWHzIq7iZr0pf574a9bRbfgWJbEygznVak-RFOyaBSuPuOdTZEDDG_Ml02v5Fz4Onm0LaNAdSrLhPPElCtgF55kkLE7wUkjGnJHhaz-Rs56P9AM5my64PQId6Xwk7XirroMFhvEGYpA5CSiuwvb4Um8nYx0ItBt8qRBaNd1QgIWGZZzneWPJ2_eLgY-DPXYheUbo_hjrijJchfiUqog"/>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-label-md text-on-primary text-body-md">Lumina Sky Penthouse</h3>
+<p class="text-on-primary-container font-bold text-headline-md">$4,250,000</p>
+</div>
+</div>
+<button class="w-full py-sm bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg font-label-md transition-all">View Full Match Analysis</button>
+</div>
+</div>
+<!-- Requirement Profile -->
+<div class="bg-surface rounded-xl p-lg custom-shadow border border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-lg">Requirement Profile</h2>
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Budget</span>
+<span class="font-label-md text-on-surface">$4M - $5M</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Location</span>
+<span class="font-label-md text-on-surface">San Francisco</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Property Type</span>
+<span class="font-label-md text-on-surface">Residential</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Bedrooms</span>
+<div class="flex gap-xs">
+<span class="px-sm py-[2px] bg-surface-container-high rounded text-[12px] font-bold">3+</span>
+</div>
+</div>
+<div class="pt-sm border-t border-outline-variant flex flex-wrap gap-xs">
+<span class="px-sm py-[2px] bg-secondary-container/20 text-on-secondary-container rounded text-[11px] font-bold">Modern Design</span>
+<span class="px-sm py-[2px] bg-secondary-container/20 text-on-secondary-container rounded text-[11px] font-bold">High Floor</span>
+<span class="px-sm py-[2px] bg-secondary-container/20 text-on-secondary-container rounded text-[11px] font-bold">View Preferred</span>
+</div>
+</div>
+</div>
+<!-- Engagement Tools -->
+<div class="space-y-sm">
+<button class="w-full flex items-center justify-between p-md bg-surface rounded-xl border border-outline-variant custom-shadow hover:bg-surface-container-low transition-all group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">forum</span>
+</div>
+<span class="font-label-md text-on-surface">Linked Chat Transcript</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-md bg-surface rounded-xl border border-outline-variant custom-shadow hover:bg-surface-container-low transition-all group">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="font-label-md text-on-surface">Engagement Insights</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+<!-- Quick Actions -->
+<div class="bg-surface-container-high/30 rounded-xl p-md border border-dashed border-outline-variant text-center">
+<p class="text-body-sm text-on-surface-variant mb-sm">Something missing from Sarah's profile?</p>
+<button class="text-primary font-label-md hover:underline">Update AI Profile</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Floating Action Button for Tasks - Contextual Suppression Check: Enabled as it is a Dashboard/Detail view -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[28px]">add_task</span>
+</button>
+<script>
+        // Micro-interaction for UI feel
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.opacity = '0.8';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.opacity = '1';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

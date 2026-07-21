@@ -1,0 +1,10 @@
+name: Issue Template
+description: Templates for issues in this repository
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/your-organization/ai-property-claude/discussions
+    about: Ask and answer questions
+  - name: Documentation
+    url: https://github.com/your-organization/ai-property-claude/blob/main/docs/
+    about: Browse the documentation

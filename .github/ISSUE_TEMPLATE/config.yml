@@ -1,0 +1,11 @@
+# This is the configuration for issue templates.
+# For more details, see: https://github.community/t5/GitHub-Share-Tips/Using-Template-issue-forms/td-p/39304
+
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/your-org/your-repo/discussions
+    about: Ask questions and share ideas in our community forums
+  - name: Project Documentation
+    url: https://github.com/your-org/your-repo/blob/main/docs/
+    about: Browse our documentation for guides and references

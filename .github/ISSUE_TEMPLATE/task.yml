@@ -1,0 +1,101 @@
+name: Task
+description: Create a task for tracking work
+title: "[TASK]: "
+labels: ["task", "triage"]
+assignees:
+  -
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for creating a task to track work!
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: A clear and concise description of what needs to be done.
+      placeholder: Describe the task that needs to be completed.
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Task Type
+      description: What type of task is this?
+      options:
+        - Development
+        - Testing
+        - Documentation
+        - Research
+        - Refactoring
+        - Configuration
+        - Other
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: What is the priority of this task?
+      options:
+        - P0 (Critical)
+        - P1 (High)
+        - P2 (Medium)
+        - P3 (Low)
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: How will we know when this task is complete?
+      placeholder: List the conditions that must be met for this task to be considered done.
+    validations:
+      required: false
+  - type: checkboxes
+    id: area
+    attributes:
+      label: Area
+      area: Component
+      description: Which part of the system does this affect?
+      options:
+        - label: Frontend (React/TypeScript)
+          required: false
+        - label: Backend (Python/FastAPI)
+          required: false
+        - label: Infrastructure/DevOps
+          required: false
+        - label: Documentation
+          required: false
+        - label: Design/UI
+          required: false
+        - label: Testing
+          required: false
+    validations:
+      required: false
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: What other tasks or issues need to be completed before this can start?
+      placeholder: List any dependencies (issue numbers, external blockers, etc.)
+    validations:
+      required: false
+  - type: textarea
+    id: estimated-effort
+    attributes:
+      label: Estimated Effort
+      description: How much time do you estimate this will take? (e.g., 2h, 1d, 3sp)
+      placeholder: Your estimate here
+    validations:
+      required: false
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the task here.
+      placeholder: Links to designs, related issues, or any other relevant information.
+    validations:
+      required: false

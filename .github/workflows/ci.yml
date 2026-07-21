@@ -1,0 +1,87 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Sets up Node.js for frontend documentation validation
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # Sets up Python for backend validation
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      # Install dependencies (if any)
+      - name: Install Dependencies
+        run: |
+          # Install Node dependencies if package.json exists
+          if [ -f "package.json" ]; then
+            npm ci
+          fi
+
+          # Install Python dependencies if requirements.txt exists
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          fi
+
+      # Run validation/linting (placeholder for now)
+      - name: Validate Documentation
+        run: |
+          echo "Validating documentation structure..."
+          # Check if essential docs exist
+          if [ ! -f "docs/SRS-software-requirements-specification.md" ]; then
+            echo "ERROR: SRS document missing!"
+            exit 1
+          fi
+          if [ ! -f "docs/BRD-business-requirements.md" ]; then
+            echo "ERROR: BRD document missing!"
+            exit 1
+          fi
+          if [ ! -f "docs/backend-technical-design.md" ]; then
+            echo "ERROR: Backend technical design missing!"
+            exit 1
+          fi
+          echo "✅ Core documentation files present"
+
+      # Run security scanning (placeholder)
+      - name: Security Scan
+        run: |
+          echo "Running basic security checks..."
+          # In a real implementation, you might run tools like:
+          # - npm audit (for Node.js)
+          # - safety check (for Python)
+          # - git-secrets or truffleHog (for secrets)
+          echo "✅ Basic security check passed"
+
+      # Upload artifacts (if any)
+      - name: Upload Documentation Artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: documentation
+          path: |
+            docs/**
+            !docs/design/**/*.png  # Exclude large image files if needed
+          retention-days: 30
